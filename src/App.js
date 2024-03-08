@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
-
+import SearchField from './components/SearchField/SearchField';
+import Items from './components/Items/Items';
+import Users from './components/Users/Users';
+import { useDispatch, useSelector } from 'react-redux';
+import { getItems, getUsers } from './components/redux/actions';
+import { useEffect } from 'react';
+import Modal from './components/Modal/Modal'
 function App() {
+  const dispatch = useDispatch();
+  const usersLoading = useSelector(store => store.users.loading);
+  const itemsLoading = useSelector(store => store.items.loading);
+  useEffect(() => {
+    dispatch(getItems());
+    dispatch(getUsers());
+  }, [dispatch]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <div className='app__container'>
+        <SearchField />
+        <Items/>
+        <Users/>
+      </div>
+      {(usersLoading || itemsLoading) && <Modal>
+            <h1>Loading...</h1>
+      </Modal>}
     </div>
   );
 }

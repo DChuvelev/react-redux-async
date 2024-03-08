@@ -1,0 +1,22 @@
+.items {
+    grid-area: items;
+    overflow: auto;
+    overflow-x: hidden;
+    padding: 0;
+
+    
+}
+
+.items::-webkit-scrollbar {
+    display: none;
+  }
+
+.items__cards {
+    padding: 0;
+    margin: 0;
+    display: grid;
+    /* justify-content: center; */
+    grid-template-columns: repeat(auto-fill, 204px);
+    column-gap: 30px;
+    row-gap: 33px;
+}

@@ -1,0 +1,27 @@
+.modal {
+    display: inline-flex;
+    visibility: visible;
+    position: fixed;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 1;
+}
+
+.modal__content {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+    border-radius: 20px;
+    box-shadow: 0 0 25px 0 black;
+    overflow: hidden;
+    height: 100px;
+    width: 200px;
+    margin-top: 20vw;
+    text-align: center;
+}
