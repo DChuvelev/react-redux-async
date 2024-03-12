@@ -1,10 +1,12 @@
+import { combineReducers } from "redux";
+
 const initStore = {
     data: [],
     loading: false,
     error: false
 }
 
-export const itemsReducer = (state = {...initStore, storeType: 'products', searchString: '' }, action) => {
+const itemsReducer = (state = {...initStore, storeType: 'products', searchString: '' }, action) => {
     switch (action.type) {
         case 'items/get':
             return {...state, loading: true}
@@ -20,7 +22,7 @@ export const itemsReducer = (state = {...initStore, storeType: 'products', searc
     
 }
 
-export const usersReducer = (state = {...initStore, storeType: 'users' }, action) => {
+const usersReducer = (state = {...initStore, storeType: 'users' }, action) => {
     switch (action.type) {
         case 'users/get':
             return {...state, loading: true};
@@ -32,3 +34,8 @@ export const usersReducer = (state = {...initStore, storeType: 'users' }, action
             return state;
     }
 }
+
+export default combineReducers({
+    items: itemsReducer,
+    users: usersReducer
+})

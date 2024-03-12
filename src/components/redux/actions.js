@@ -1,46 +1,54 @@
+import { GET_ITEMS, SET_SEARCH_STRING_FOR_ITEMS, GET_ITEMS_SUCCEEDED, GET_ITEMS_FAILED, GET_USERS, GET_USERS_SUCCEEDED, GET_USERS_FAILED, INIT_ALL } from './actionNames';
+
 export const getItems = () => {
     return {
-        type: 'items/get'
+        type: GET_ITEMS
     }
 }
 
 export const setSearchString = (searchString) => {
     return {
-        type: 'items/setSearchString',
+        type: SET_SEARCH_STRING_FOR_ITEMS,
         payload: searchString
     }
 }
 
 export const getItemsSucceeded = (payload) => {
     return {
-        type: 'items/getSucceeded',
+        type: GET_ITEMS_SUCCEEDED,
         payload
     }
 }
 
 export const getItemsFailed = (err) => {
     return {
-        type: 'items/getFailed',
+        type: GET_ITEMS_FAILED,
         payload: err
     }
 }
 
 export const getUsers = () => {
     return {
-        type: 'users/get'
+        type: GET_USERS
     }
 }
 
 export const getUsersSucceeded = (payload) => {
     return {
-        type: 'users/getSucceeded',
+        type: GET_USERS_SUCCEEDED,
         payload
     }
 }
 
 export const getUsersFailed = (err) => {
     return {
-        type: 'users/getFailed',
+        type: GET_USERS_FAILED,
         payload: err
+    }
+}
+
+export const initAll = () => {
+    return {
+        type: INIT_ALL,
     }
 }

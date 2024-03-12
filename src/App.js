@@ -3,7 +3,7 @@ import SearchField from './components/SearchField/SearchField';
 import Items from './components/Items/Items';
 import Users from './components/Users/Users';
 import { useDispatch, useSelector } from 'react-redux';
-import { getItems, getUsers } from './components/redux/actions';
+import { initAll } from './components/redux/actions';
 import { useEffect } from 'react';
 import Modal from './components/Modal/Modal'
 function App() {
@@ -11,8 +11,7 @@ function App() {
   const usersLoading = useSelector(store => store.users.loading);
   const itemsLoading = useSelector(store => store.items.loading);
   useEffect(() => {
-    dispatch(getItems());
-    dispatch(getUsers());
+    dispatch(initAll());
   }, [dispatch]);
 
   return (
